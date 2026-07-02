@@ -47,13 +47,12 @@ fi
 # 5. Stow packages
 # ──────────────────────────────────────────────
 echo "==> Stowing dotfiles..."
-cd "$DOTFILES_DIR"
 
 packages=(zsh git nvim ghostty btop gh neofetch claude markdownlint)
 
 for pkg in "${packages[@]}"; do
   echo "  -> $pkg"
-  stow "$pkg"
+  stow -d "$DOTFILES_DIR/packages" -t "$HOME" "$pkg"
 done
 
 echo ""

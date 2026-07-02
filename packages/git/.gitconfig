@@ -5,5 +5,5 @@
 	helper = 
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [user]
-	name = kurooomochi
+	name = kurovoid
 	email = santiagozapatabohorquez@hotmail.com
