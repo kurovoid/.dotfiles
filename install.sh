@@ -3,7 +3,7 @@ set -e
 
 DOTFILES_DIR="$HOME/.dotfiles"
 
-echo "==> Santiago's dotfiles installer"
+echo "==> Kur0's dotfiles installer"
 echo ""
 
 # ──────────────────────────────────────────────
@@ -38,7 +38,7 @@ fi
 # ──────────────────────────────────────────────
 if [ ! -d "$HOME/.nvm" ]; then
   echo "==> Installing nvm..."
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.5/install.sh | bash
 else
   echo "==> nvm already installed"
 fi
@@ -55,19 +55,6 @@ for pkg in "${packages[@]}"; do
   echo "  -> $pkg"
   stow "$pkg"
 done
-
-# ──────────────────────────────────────────────
-# 6. Google Cloud SDK (optional)
-# ──────────────────────────────────────────────
-if [ ! -d "$HOME/google-cloud-sdk" ]; then
-  read -p "==> Install Google Cloud SDK? [y/N] " -n 1 -r
-  echo
-  if [[ $REPLY =~ ^[Yy]$ ]]; then
-    curl https://sdk.cloud.google.com | bash
-  fi
-else
-  echo "==> Google Cloud SDK already installed"
-fi
 
 echo ""
 echo "==> Done! Restart your terminal to apply changes."
