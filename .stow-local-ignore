@@ -1,0 +1,11 @@
+# Git files
+\.git
+\.gitignore
+\.gitmodules
+
+# Repo files
+^Brewfile$
+^install\.sh$
+^README\.md$
+^LICENSE$
+\.stow-local-ignore
