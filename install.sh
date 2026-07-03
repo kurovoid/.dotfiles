@@ -48,7 +48,21 @@ else
 fi
 
 # ──────────────────────────────────────────────
-# 5. Stow packages
+# 5. Clean up auto-generated configs
+# ──────────────────────────────────────────────
+# Oh My Zsh, nvm, and Homebrew generate their own .zshrc/.zprofile.
+# Our dotfiles already include the correct versions, so remove the
+# generated ones before stowing.
+echo "==> Cleaning up auto-generated configs..."
+for f in .zshrc .zprofile; do
+  if [ -f "$HOME/$f" ] && [ ! -L "$HOME/$f" ]; then
+    mv "$HOME/$f" "$HOME/$f.bak"
+    echo "  -> backed up ~/$f to ~/$f.bak"
+  fi
+done
+
+# ──────────────────────────────────────────────
+# 6. Stow packages
 # ──────────────────────────────────────────────
 echo "==> Stowing dotfiles..."
 
