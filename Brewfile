@@ -1,5 +1,4 @@
 # Taps
-tap "homebrew/bundle"
 tap "hashicorp/tap"
 tap "jesseduffield/lazydocker"
 tap "productdevbook/tap"
@@ -11,7 +10,6 @@ brew "fd"
 brew "gh"
 brew "lazydocker"
 brew "lazygit"
-brew "neofetch"
 brew "neovim"
 brew "nmap"
 brew "pnpm"

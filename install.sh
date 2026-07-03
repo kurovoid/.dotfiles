@@ -20,6 +20,10 @@ fi
 # ──────────────────────────────────────────────
 # 2. Brew packages
 # ──────────────────────────────────────────────
+echo "==> Trusting third-party taps..."
+brew trust --formula hashicorp/tap/terraform 2>/dev/null || true
+brew trust --cask productdevbook/tap/portkiller 2>/dev/null || true
+
 echo "==> Installing brew packages..."
 brew bundle --file="$DOTFILES_DIR/Brewfile"
 
@@ -48,7 +52,7 @@ fi
 # ──────────────────────────────────────────────
 echo "==> Stowing dotfiles..."
 
-packages=(zsh git nvim ghostty btop gh neofetch claude markdownlint)
+packages=(zsh git nvim ghostty btop gh claude markdownlint)
 
 for pkg in "${packages[@]}"; do
   echo "  -> $pkg"
