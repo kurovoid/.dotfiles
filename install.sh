@@ -48,7 +48,17 @@ else
 fi
 
 # ──────────────────────────────────────────────
-# 5. Clean up auto-generated configs
+# 5. Claude Code
+# ──────────────────────────────────────────────
+if ! command -v claude &>/dev/null; then
+  echo "==> Installing Claude Code..."
+  curl -fsSL https://claude.ai/install.sh | sh
+else
+  echo "==> Claude Code already installed"
+fi
+
+# ──────────────────────────────────────────────
+# 6. Clean up auto-generated configs
 # ──────────────────────────────────────────────
 # Oh My Zsh, nvm, and Homebrew generate their own .zshrc/.zprofile.
 # Our dotfiles already include the correct versions, so remove the
