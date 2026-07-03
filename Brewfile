@@ -24,6 +24,7 @@ brew "hashicorp/tap/terraform"
 # Apps
 cask "ghostty"
 cask "productdevbook/tap/portkiller"
+cask "obsidian"
 cask "thunderbird"
 cask "visual-studio-code"
 cask "zen"
