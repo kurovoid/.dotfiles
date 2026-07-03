@@ -22,7 +22,10 @@ brew "tree"
 brew "hashicorp/tap/terraform"
 
 # Apps
+cask "brave-browser"
 cask "ghostty"
+cask "google-chrome"
+cask "google-drive"
 cask "productdevbook/tap/portkiller"
 cask "obsidian"
 cask "thunderbird"
