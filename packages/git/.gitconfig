@@ -7,3 +7,5 @@
 [user]
 	name = kurovoid
 	email = santiagozapatabohorquez@hotmail.com
+[core]
+	excludesfile = ~/.gitignore_global
