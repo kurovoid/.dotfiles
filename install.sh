@@ -48,7 +48,17 @@ else
 fi
 
 # ──────────────────────────────────────────────
-# 5. Claude Code
+# 5. gobrew
+# ──────────────────────────────────────────────
+if [ ! -d "$HOME/.gobrew" ]; then
+  echo "==> Installing gobrew..."
+  curl -fsSL https://raw.githubusercontent.com/kevincobain2000/gobrew/master/git.io.sh | bash
+else
+  echo "==> gobrew already installed"
+fi
+
+# ──────────────────────────────────────────────
+# 6. Claude Code
 # ──────────────────────────────────────────────
 if ! command -v claude &>/dev/null; then
   echo "==> Installing Claude Code..."
@@ -58,7 +68,7 @@ else
 fi
 
 # ──────────────────────────────────────────────
-# 6. Clean up auto-generated configs
+# 7. Clean up auto-generated configs
 # ──────────────────────────────────────────────
 # Oh My Zsh, nvm, and Homebrew generate their own .zshrc/.zprofile.
 # Our dotfiles already include the correct versions, so remove the
@@ -72,7 +82,7 @@ for f in .zshrc .zprofile; do
 done
 
 # ──────────────────────────────────────────────
-# 6. Stow packages
+# 8. Stow packages
 # ──────────────────────────────────────────────
 echo "==> Stowing dotfiles..."
 
