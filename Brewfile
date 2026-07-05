@@ -1,6 +1,5 @@
 # Taps
 tap "hashicorp/tap"
-tap "jesseduffield/lazydocker"
 tap "productdevbook/tap"
 
 # CLI tools
@@ -8,8 +7,6 @@ brew "btop"
 brew "cloudflared"
 brew "fd"
 brew "gh"
-brew "lazydocker"
-brew "lazygit"
 brew "neovim"
 brew "nmap"
 brew "pnpm"
@@ -31,3 +28,4 @@ cask "obsidian"
 cask "thunderbird"
 cask "visual-studio-code"
 cask "zen"
+cask "tailscale-app"
