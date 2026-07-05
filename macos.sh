@@ -23,6 +23,19 @@ defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 # Disable warning when changing file extension
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+# Allow quitting Finder with Cmd+Q
+defaults write com.apple.finder QuitMenuItem -bool true
+# Show full POSIX path in window title
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+# Keep folders on top when sorting by name
+defaults write com.apple.finder _FXSortFoldersFirst -bool true
+# Don't warn before emptying the Trash
+defaults write com.apple.finder WarnOnEmptyTrash -bool false
+# Avoid creating .DS_Store files on network and USB volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+# Unhide the ~/Library folder
+chflags nohidden ~/Library
 
 # ──────────────────────────────────────────────
 # Dock
@@ -30,15 +43,19 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 # Set icon size
 defaults write com.apple.dock tilesize -int 48
 # Autohide the Dock
-defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock autohide -bool false
 # Remove autohide delay
-defaults write com.apple.dock autohide-delay -float 0
+# defaults write com.apple.dock autohide-delay -float 0
 # Speed up autohide animation
-defaults write com.apple.dock autohide-time-modifier -float 0.3
+# defaults write com.apple.dock autohide-time-modifier -float 0.3
 # Don't show recent apps
 defaults write com.apple.dock show-recents -bool false
 # Minimize to application
 defaults write com.apple.dock minimize-to-application -bool true
+# Don't rearrange Spaces based on most recent use
+defaults write com.apple.dock mru-spaces -bool false
+# Don't animate opening applications from the Dock
+defaults write com.apple.dock launchanim -bool false
 
 # ──────────────────────────────────────────────
 # Keyboard
@@ -55,6 +72,10 @@ defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 # Disable smart quotes
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+# Disable automatic period substitution
+defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
+# Enable full keyboard access for all controls (Tab through dialogs)
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
 # ──────────────────────────────────────────────
 # Trackpad
@@ -71,6 +92,27 @@ defaults write com.apple.screencapture location -string "$HOME/Downloads"
 defaults write com.apple.screencapture type -string "png"
 # Disable shadow
 defaults write com.apple.screencapture disable-shadow -bool true
+
+# ──────────────────────────────────────────────
+# General
+# ──────────────────────────────────────────────
+# Save to disk (not to iCloud) by default
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+# Expand save panel by default
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
+# Expand print panel by default
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+# Automatically quit printer app once the print jobs complete
+defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
+
+# ──────────────────────────────────────────────
+# Screen
+# ──────────────────────────────────────────────
+# Require password immediately after sleep or screen saver
+defaults write com.apple.screensaver askForPassword -int 1
+defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 # ──────────────────────────────────────────────
 # Apply changes
