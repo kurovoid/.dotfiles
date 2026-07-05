@@ -1,4 +1,6 @@
 {
   "enabledPlugins": {},
-  "effortLevel": "xhigh"
+  "effortLevel": "xhigh",
+  "tui": "fullscreen",
+  "theme": "dark"
 }
