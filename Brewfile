@@ -14,6 +14,11 @@ brew "powerlevel10k"
 brew "ripgrep"
 brew "stow"
 brew "tree"
+brew "docker"
+brew "docker-compose"
+brew "docker-buildx"
+brew "colima"
+brew "lazydocker"
 
 # From taps
 brew "hashicorp/tap/terraform"

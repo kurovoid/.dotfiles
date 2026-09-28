@@ -27,6 +27,20 @@ brew trust --cask productdevbook/tap/portkiller 2>/dev/null || true
 echo "==> Installing brew packages..."
 brew bundle --file="$DOTFILES_DIR/Brewfile"
 
+# Let the docker CLI find the Homebrew compose/buildx plugins.
+# Not stowed: docker and colima write to this file (contexts, auths).
+if [ ! -f "$HOME/.docker/config.json" ]; then
+  echo "==> Configuring docker CLI plugins..."
+  mkdir -p "$HOME/.docker"
+  cat > "$HOME/.docker/config.json" <<'EOF'
+{
+  "cliPluginsExtraDirs": [
+    "/opt/homebrew/lib/docker/cli-plugins"
+  ]
+}
+EOF
+fi
+
 # ──────────────────────────────────────────────
 # 3. Oh My Zsh
 # ──────────────────────────────────────────────

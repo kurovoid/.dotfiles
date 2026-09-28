@@ -1,6 +1,22 @@
 {
-  "enabledPlugins": {},
-  "effortLevel": "xhigh",
+  "model": "opus",
+  "enabledPlugins": {
+    "humanizer@humanizer": true
+  },
+  "extraKnownMarketplaces": {
+    "humanizer": {
+      "source": {
+        "source": "github",
+        "repo": "blader/humanizer"
+      }
+    }
+  },
+  "effortLevel": "high",
   "tui": "fullscreen",
-  "theme": "dark"
+  "theme": "dark",
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "xhigh"
+    }
+  }
 }
