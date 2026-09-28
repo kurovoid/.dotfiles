@@ -12,8 +12,25 @@ return {
 					"neo-tree",
 					"telescope",
 					"nvim-tree",
-					"float_win",
 				},
+				-- Floats and the snacks explorer/picker default to a light gray body (NormalFloat)
+				-- that clashes with the theme's dark sidebar borders/titles. Unify them.
+				override = function(c)
+					local bg = c.sideBar.background
+					local fg = c.editor.foreground
+					return {
+						NormalFloat = { bg = bg, fg = fg },
+						FloatBorder = { bg = bg, fg = c.base.dimmed3 },
+						SnacksPicker = { bg = bg, fg = fg },
+						SnacksPickerList = { bg = bg, fg = fg },
+						SnacksPickerInput = { bg = bg, fg = fg },
+						SnacksPickerBox = { bg = bg, fg = fg },
+						SnacksPickerBorder = { bg = bg, fg = c.base.dimmed3 },
+						SnacksPickerInputBorder = { bg = bg, fg = c.base.dimmed3 },
+						SnacksPickerListCursorLine = { bg = c.list.activeSelectionBackground },
+						SnacksPickerToggle = { bg = bg, fg = c.base.dimmed3, italic = true },
+					}
+				end,
 				day_night = {
 					enable = false, -- turn off by default
 					day_filter = "pro", -- classic | octagon | pro | machine | ristretto | spectrum
@@ -35,7 +52,9 @@ return {
 	{
 		"LazyVim/LazyVim",
 		opts = {
-			colorscheme = "monokai-pro",
+			-- "monokai-pro" forces the "pro" filter and ignores `filter` above;
+			-- use the filter-specific name so it matches Ghostty's "Monokai Pro Spectrum".
+			colorscheme = "monokai-pro-spectrum",
 		},
 	},
 }
