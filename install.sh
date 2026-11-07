@@ -100,7 +100,11 @@ done
 # ──────────────────────────────────────────────
 echo "==> Stowing dotfiles..."
 
-packages=(zsh git nvim ghostty btop gh claude markdownlint)
+packages=(zsh git nvim ghostty btop gh claude markdownlint herdr)
+
+# herdr keeps its socket, logs, and session state next to config.toml.
+# A real directory stops stow from folding it into a symlink to the repo.
+mkdir -p "$HOME/.config/herdr"
 
 for pkg in "${packages[@]}"; do
   echo "  -> $pkg"
