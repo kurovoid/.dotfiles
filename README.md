@@ -32,6 +32,7 @@ Restart your terminal after the script finishes.
 | `gh`          | `~/.config/gh/config.yml`  | GitHub CLI preferences (not auth)   |
 | `claude`      | `~/.claude/settings.json`  | Claude Code plugins and settings    |
 | `markdownlint`| `~/.markdownlint-cli2.jsonc`| Markdown linter rules              |
+| `herdr`       | `~/.config/herdr/config.toml`| Agent multiplexer settings, keybindings |
 
 ## How stow works
 
@@ -124,6 +125,7 @@ Remove it from the `packages` array in `install.sh` and commit.
 | `~/.nvm/`               | Managed by nvm itself               |
 | `~/.oh-my-zsh/`         | Managed by its own installer/updater |
 | `~/.infisical/`         | Credentials                         |
+| `~/.config/herdr/*` (except `config.toml`) | Socket, logs, and session state |
 
 ## Structure
 
@@ -137,7 +139,8 @@ Remove it from the `packages` array in `install.sh` and commit.
 │   ├── btop/
 │   ├── gh/
 │   ├── claude/
-│   └── markdownlint/
+│   ├── markdownlint/
+│   └── herdr/
 ├── Brewfile            # brew formulae, casks, and taps
 ├── install.sh          # bootstrap script
 └── README.md
